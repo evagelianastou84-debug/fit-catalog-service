@@ -1,0 +1,14 @@
+{
+  "name": "fit-catalog-service",
+  "version": "0.1.0",
+  "description": "Catalog Service for the Fit virtual try-on app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
