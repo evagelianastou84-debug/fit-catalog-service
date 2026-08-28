@@ -1,0 +1,40 @@
+{
+  "zara_tops_regular": {
+    "retailer_id": "zara",
+    "category": "top",
+    "fit_type": "regular",
+    "entries": [
+      { "retailer_size": "36", "eu_size": "36", "bust_cm": [82, 85], "waist_cm": [64, 67], "hip_cm": [90, 93] },
+      { "retailer_size": "38", "eu_size": "38", "bust_cm": [86, 89], "waist_cm": [68, 71], "hip_cm": [94, 97] },
+      { "retailer_size": "40", "eu_size": "40", "bust_cm": [90, 93], "waist_cm": [72, 75], "hip_cm": [98, 101] }
+    ]
+  },
+  "hm_bottoms_regular": {
+    "retailer_id": "hm",
+    "category": "bottom",
+    "fit_type": "regular",
+    "entries": [
+      { "retailer_size": "36", "eu_size": "36", "waist_cm": [66, 69], "hip_cm": [92, 95] },
+      { "retailer_size": "38", "eu_size": "38", "waist_cm": [70, 73], "hip_cm": [96, 99] }
+    ]
+  },
+  "simplybe_dresses": {
+    "retailer_id": "simplybe",
+    "category": "dress",
+    "fit_type": "relaxed",
+    "entries": [
+      { "retailer_size": "10", "eu_size": "38", "bust_cm": [86, 90], "waist_cm": [69, 73], "hip_cm": [95, 99] },
+      { "retailer_size": "12", "eu_size": "40", "bust_cm": [91, 95], "waist_cm": [74, 78], "hip_cm": [100, 104] },
+      { "retailer_size": "14", "eu_size": "42", "bust_cm": [96, 100], "waist_cm": [79, 83], "hip_cm": [105, 109] }
+    ]
+  },
+  "jdwilliams_shoes": {
+    "retailer_id": "jdwilliams",
+    "category": "shoes",
+    "fit_type": "regular",
+    "entries": [
+      { "retailer_size": "5", "eu_size": "38", "foot_length_cm": [24.1, 24.5] },
+      { "retailer_size": "6", "eu_size": "39", "foot_length_cm": [24.6, 25.0] }
+    ]
+  }
+}
