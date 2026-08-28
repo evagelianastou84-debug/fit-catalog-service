@@ -1,0 +1,122 @@
+[
+  {
+    "id": "prod_001",
+    "retailer_id": "zara",
+    "retailer_sku": "ZR-BLZ-2384",
+    "network": "gated",
+    "affiliate_url": "https://www.zara.com/blazer-wool?ref=fit-app",
+    "category": "top",
+    "name": "Wool blazer",
+    "description": "Tailored wool-blend blazer with structured shoulders.",
+    "color": "Charcoal",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 89.95,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true },
+      { "retailer_size": "40", "eu_size_mapped": "40", "in_stock": false }
+    ],
+    "size_chart_id": "zara_tops_regular",
+    "images": [
+      { "url": "https://example.com/zara-blazer-front.jpg", "angle": "front", "quality_score": 0.92 }
+    ],
+    "image_readiness": "high",
+    "season_tags": ["fall", "winter"],
+    "occasion_tags": ["work"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-08-27T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_002",
+    "retailer_id": "hm",
+    "retailer_sku": "HM-TRS-5521",
+    "network": "awin",
+    "affiliate_url": "https://www2.hm.com/tailored-trousers?ref=fit-app",
+    "category": "bottom",
+    "name": "Tailored trousers",
+    "description": "Straight-leg tailored trousers in stretch cotton blend.",
+    "color": "Sand",
+    "color_family": "earth tones",
+    "pattern_type": "solid",
+    "price_amount": 39.99,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "hm_bottoms_regular",
+    "images": [
+      { "url": "https://example.com/hm-trousers-front.jpg", "angle": "front", "quality_score": 0.88 }
+    ],
+    "image_readiness": "high",
+    "season_tags": ["all_season"],
+    "occasion_tags": ["work", "casual"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-08-27T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_003",
+    "retailer_id": "simplybe",
+    "retailer_sku": "SB-DRS-1190",
+    "network": "cj",
+    "affiliate_url": "https://www.simplybe.co.uk/wrap-midi-dress?ref=fit-app",
+    "category": "dress",
+    "name": "Wrap midi dress",
+    "description": "Size-inclusive wrap dress with adjustable tie waist.",
+    "color": "Wine",
+    "color_family": "reds",
+    "pattern_type": "solid",
+    "price_amount": 55.00,
+    "price_currency": "GBP",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "10", "eu_size_mapped": "38", "in_stock": true },
+      { "retailer_size": "12", "eu_size_mapped": "40", "in_stock": true },
+      { "retailer_size": "14", "eu_size_mapped": "42", "in_stock": true }
+    ],
+    "size_chart_id": "simplybe_dresses",
+    "images": [
+      { "url": "https://example.com/simplybe-dress-front.jpg", "angle": "front", "quality_score": 0.9 }
+    ],
+    "image_readiness": "high",
+    "season_tags": ["spring", "summer"],
+    "occasion_tags": ["date", "evening"],
+    "fit_tags": ["relaxed"],
+    "last_synced_at": "2026-08-27T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_004",
+    "retailer_id": "jdwilliams",
+    "retailer_sku": "JDW-BT-0087",
+    "network": "cj",
+    "affiliate_url": "https://www.jdwilliams.co.uk/ankle-boots?ref=fit-app",
+    "category": "shoes",
+    "name": "Ankle boots",
+    "description": "Block-heel ankle boots with side zip.",
+    "color": "Black",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 45.00,
+    "price_currency": "GBP",
+    "discount_pct": 10,
+    "sizes_available": [
+      { "retailer_size": "5", "eu_size_mapped": "38", "in_stock": true },
+      { "retailer_size": "6", "eu_size_mapped": "39", "in_stock": true }
+    ],
+    "size_chart_id": "jdwilliams_shoes",
+    "images": [
+      { "url": "https://example.com/jdw-boots-front.jpg", "angle": "front", "quality_score": 0.7 }
+    ],
+    "image_readiness": "medium",
+    "season_tags": ["fall", "winter"],
+    "occasion_tags": ["work", "casual", "date"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-08-27T09:00:00Z",
+    "active": true
