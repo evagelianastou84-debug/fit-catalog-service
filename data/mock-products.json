@@ -20,14 +20,12 @@
       { "retailer_size": "40", "eu_size_mapped": "40", "in_stock": false }
     ],
     "size_chart_id": "zara_tops_regular",
-    "images": [
-      { "url": "https://example.com/zara-blazer-front.jpg", "angle": "front", "quality_score": 0.92 }
-    ],
+    "images": [{ "url": "https://example.com/zara-blazer-front.jpg", "angle": "front", "quality_score": 0.92 }],
     "image_readiness": "high",
     "season_tags": ["fall", "winter"],
     "occasion_tags": ["work"],
     "fit_tags": ["regular"],
-    "last_synced_at": "2026-08-27T09:00:00Z",
+    "last_synced_at": "2026-09-01T09:00:00Z",
     "active": true
   },
   {
@@ -50,14 +48,12 @@
       { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
     ],
     "size_chart_id": "hm_bottoms_regular",
-    "images": [
-      { "url": "https://example.com/hm-trousers-front.jpg", "angle": "front", "quality_score": 0.88 }
-    ],
+    "images": [{ "url": "https://example.com/hm-trousers-front.jpg", "angle": "front", "quality_score": 0.88 }],
     "image_readiness": "high",
     "season_tags": ["all_season"],
     "occasion_tags": ["work", "casual"],
     "fit_tags": ["regular"],
-    "last_synced_at": "2026-08-27T09:00:00Z",
+    "last_synced_at": "2026-09-01T09:00:00Z",
     "active": true
   },
   {
@@ -81,14 +77,12 @@
       { "retailer_size": "14", "eu_size_mapped": "42", "in_stock": true }
     ],
     "size_chart_id": "simplybe_dresses",
-    "images": [
-      { "url": "https://example.com/simplybe-dress-front.jpg", "angle": "front", "quality_score": 0.9 }
-    ],
+    "images": [{ "url": "https://example.com/simplybe-dress-front.jpg", "angle": "front", "quality_score": 0.9 }],
     "image_readiness": "high",
     "season_tags": ["spring", "summer"],
     "occasion_tags": ["date", "evening"],
     "fit_tags": ["relaxed"],
-    "last_synced_at": "2026-08-27T09:00:00Z",
+    "last_synced_at": "2026-09-01T09:00:00Z",
     "active": true
   },
   {
@@ -111,14 +105,209 @@
       { "retailer_size": "6", "eu_size_mapped": "39", "in_stock": true }
     ],
     "size_chart_id": "jdwilliams_shoes",
-    "images": [
-      { "url": "https://example.com/jdw-boots-front.jpg", "angle": "front", "quality_score": 0.7 }
-    ],
+    "images": [{ "url": "https://example.com/jdw-boots-front.jpg", "angle": "front", "quality_score": 0.7 }],
     "image_readiness": "medium",
     "season_tags": ["fall", "winter"],
     "occasion_tags": ["work", "casual", "date"],
     "fit_tags": ["regular"],
-    "last_synced_at": "2026-08-27T09:00:00Z",
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_005",
+    "retailer_id": "mango",
+    "retailer_sku": "MNG-TS-1120",
+    "network": "cj",
+    "affiliate_url": "https://shop.mango.com/cotton-tshirt?ref=fit-app",
+    "category": "top",
+    "name": "Cotton T-shirt",
+    "description": "Relaxed-fit cotton tee, everyday essential.",
+    "color": "White",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 19.99,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true },
+      { "retailer_size": "40", "eu_size_mapped": "40", "in_stock": true }
+    ],
+    "size_chart_id": "zara_tops_regular",
+    "images": [{ "url": "https://example.com/mango-tshirt-front.jpg", "angle": "front", "quality_score": 0.85 }],
+    "image_readiness": "high",
+    "season_tags": ["all_season"],
+    "occasion_tags": ["casual"],
+    "fit_tags": ["relaxed"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_006",
+    "retailer_id": "mango",
+    "retailer_sku": "MNG-JN-3390",
+    "network": "cj",
+    "affiliate_url": "https://shop.mango.com/straight-jeans?ref=fit-app",
+    "category": "bottom",
+    "name": "Straight-leg jeans",
+    "description": "Mid-rise straight jeans in classic blue denim.",
+    "color": "Blue",
+    "color_family": "blues",
+    "pattern_type": "solid",
+    "price_amount": 45.99,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "hm_bottoms_regular",
+    "images": [{ "url": "https://example.com/mango-jeans-front.jpg", "angle": "front", "quality_score": 0.87 }],
+    "image_readiness": "high",
+    "season_tags": ["all_season"],
+    "occasion_tags": ["casual", "work"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_007",
+    "retailer_id": "zara",
+    "retailer_sku": "ZR-BLS-6602",
+    "network": "gated",
+    "affiliate_url": "https://www.zara.com/silk-blouse?ref=fit-app",
+    "category": "top",
+    "name": "Silk blouse",
+    "description": "Fluid silk-blend blouse with tie neck detail.",
+    "color": "Wine",
+    "color_family": "reds",
+    "pattern_type": "solid",
+    "price_amount": 49.95,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "zara_tops_regular",
+    "images": [{ "url": "https://example.com/zara-blouse-front.jpg", "angle": "front", "quality_score": 0.9 }],
+    "image_readiness": "high",
+    "season_tags": ["spring", "summer"],
+    "occasion_tags": ["date", "work"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_008",
+    "retailer_id": "mango",
+    "retailer_sku": "MNG-WLT-4470",
+    "network": "cj",
+    "affiliate_url": "https://shop.mango.com/wide-leg-trousers?ref=fit-app",
+    "category": "bottom",
+    "name": "Wide-leg trousers",
+    "description": "High-waist wide-leg trousers in flowing fabric.",
+    "color": "Black",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 42.00,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "hm_bottoms_regular",
+    "images": [{ "url": "https://example.com/mango-widetrousers-front.jpg", "angle": "front", "quality_score": 0.86 }],
+    "image_readiness": "high",
+    "season_tags": ["all_season"],
+    "occasion_tags": ["date", "evening", "work"],
+    "fit_tags": ["relaxed"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_009",
+    "retailer_id": "simplybe",
+    "retailer_sku": "SB-SND-2245",
+    "network": "cj",
+    "affiliate_url": "https://www.simplybe.co.uk/heeled-sandals?ref=fit-app",
+    "category": "shoes",
+    "name": "Heeled sandals",
+    "description": "Block-heel strappy sandals, evening-ready.",
+    "color": "Nude",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 38.00,
+    "price_currency": "GBP",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "5", "eu_size_mapped": "38", "in_stock": true },
+      { "retailer_size": "6", "eu_size_mapped": "39", "in_stock": true }
+    ],
+    "size_chart_id": "jdwilliams_shoes",
+    "images": [{ "url": "https://example.com/simplybe-sandals-front.jpg", "angle": "front", "quality_score": 0.8 }],
+    "image_readiness": "medium",
+    "season_tags": ["spring", "summer"],
+    "occasion_tags": ["date", "evening"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_010",
+    "retailer_id": "hm",
+    "retailer_sku": "HM-ESP-8810",
+    "network": "awin",
+    "affiliate_url": "https://www2.hm.com/espadrilles?ref=fit-app",
+    "category": "shoes",
+    "name": "Espadrilles",
+    "description": "Woven espadrille flats with ankle tie.",
+    "color": "Beige",
+    "color_family": "earth tones",
+    "pattern_type": "solid",
+    "price_amount": 24.99,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "37", "eu_size_mapped": "37", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "jdwilliams_shoes",
+    "images": [{ "url": "https://example.com/hm-espadrilles-front.jpg", "angle": "front", "quality_score": 0.82 }],
+    "image_readiness": "medium",
+    "season_tags": ["spring", "summer"],
+    "occasion_tags": ["casual"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
+    "active": true
+  },
+  {
+    "id": "prod_011",
+    "retailer_id": "zara",
+    "retailer_sku": "ZR-SLP-9034",
+    "network": "gated",
+    "affiliate_url": "https://www.zara.com/slip-dress?ref=fit-app",
+    "category": "dress",
+    "name": "Satin slip dress",
+    "description": "Bias-cut satin slip dress with adjustable straps.",
+    "color": "Black",
+    "color_family": "neutrals",
+    "pattern_type": "solid",
+    "price_amount": 45.95,
+    "price_currency": "EUR",
+    "discount_pct": null,
+    "sizes_available": [
+      { "retailer_size": "36", "eu_size_mapped": "36", "in_stock": true },
+      { "retailer_size": "38", "eu_size_mapped": "38", "in_stock": true }
+    ],
+    "size_chart_id": "simplybe_dresses",
+    "images": [{ "url": "https://example.com/zara-slipdress-front.jpg", "angle": "front", "quality_score": 0.89 }],
+    "image_readiness": "high",
+    "season_tags": ["spring", "summer"],
+    "occasion_tags": ["evening"],
+    "fit_tags": ["regular"],
+    "last_synced_at": "2026-09-01T09:00:00Z",
     "active": true
   }
-  ]
+]
