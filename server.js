@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import catalogRoutes from "./routes/catalog.js";
+import favoritesRoutes from "./routes/favorites.js";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,6 +12,7 @@ app.use(express.json());
 app.get("/health", (req, res) => res.json({ status: "ok", service: "catalog-service" }));
 
 app.use(catalogRoutes);
+app.use(favoritesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Fit Catalog Service running on http://localhost:${PORT}`);
