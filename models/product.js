@@ -1,26 +1,66 @@
-import { readFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_KEY;
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CACHE_TTL_MS = 60 * 1000;
+let cache = null;
+let cacheTime = 0;
 
-let productsCache = null;
-let sizeChartsCache = null;
-
-async function loadProducts() {
-  if (!productsCache) {
-    const raw = await readFile(path.join(__dirname, "../data/mock-products.json"), "utf-8");
-    productsCache = JSON.parse(raw);
-  }
-  return productsCache;
+function splitTags(value) {
+  if (!value) return [];
+  return value.split(",").map((s) => s.trim()).filter(Boolean);
 }
 
-async function loadSizeCharts() {
-  if (!sizeChartsCache) {
-    const raw = await readFile(path.join(__dirname, "../data/mock-size-charts.json"), "utf-8");
-    sizeChartsCache = JSON.parse(raw);
+function normalizeRow(row) {
+  return {
+    id: row.product_code,
+    retailer_id: row.retailer_id,
+    category: row.category,
+    name: row.name,
+    description: row.description,
+    color: row.color,
+    color_family: row.color_family,
+    pattern_type: row.pattern_type,
+    price_amount: Number(row.price_amount),
+    price_currency: row.price_currency,
+    affiliate_url: row.affiliate_url,
+    image_readiness: row.image_readiness,
+    active: row.active,
+    occasion_tags: splitTags(row.occasion_tags),
+    season_tags: splitTags(row.season_tags),
+    fit_tags: splitTags(row.fit_tags),
+    sizes_available: [{ retailer_size: "one-size", eu_size_mapped: "one-size", in_stock: true }],
+    size_chart_id: null,
+  };
+}
+
+async function fetchAllProductsFromSupabase() {
+  if (!SUPABASE_URL || !SUPABASE_KEY) {
+    throw new Error("SUPABASE_URL and SUPABASE_KEY environment variables must be set");
   }
-  return sizeChartsCache;
+
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/products?select=*&active=eq.true`, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+    },
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Supabase error ${res.status}: ${text}`);
+  }
+
+  const rows = await res.json();
+  return rows.map(normalizeRow);
+}
+
+async function loadProducts() {
+  const now = Date.now();
+  if (!cache || now - cacheTime > CACHE_TTL_MS) {
+    cache = await fetchAllProductsFromSupabase();
+    cacheTime = now;
+  }
+  return cache;
 }
 
 async function findProducts({ category, occasion, season, maxPrice, inStockOnly = true } = {}) {
@@ -42,8 +82,7 @@ async function findProductById(id) {
 }
 
 async function getSizeChartFor(product) {
-  const charts = await loadSizeCharts();
-  return charts[product.size_chart_id] ?? null;
+  return null;
 }
 
 async function recommendSize(productId, targetEuSize) {
@@ -51,11 +90,18 @@ async function recommendSize(productId, targetEuSize) {
   if (!product) return null;
 
   const chart = await getSizeChartFor(product);
-  if (!chart) return { product_id: productId, recommended_size: null, confidence: "low" };
+  if (!chart) {
+    return {
+      product_id: productId,
+      recommended_size: null,
+      confidence: "low",
+      note: "Size chart data not yet available for this product.",
+    };
+  }
 
   const entry = chart.entries.find((e) => e.eu_size === String(targetEuSize));
   if (!entry) {
-    return { product_id: productId, recommended_size: null, confidence: "low", note: "Size not in chart — nearest alternative needed." };
+    return { product_id: productId, recommended_size: null, confidence: "low", note: "Size not in chart." };
   }
 
   const stockEntry = product.sizes_available.find((s) => s.retailer_size === entry.retailer_size);
