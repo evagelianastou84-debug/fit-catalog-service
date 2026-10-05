@@ -2,6 +2,8 @@ import { Router } from "express";
 import { findProducts, findProductById, recommendSize } from "../models/product.js";
 
 const router = Router();
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_KEY;
 
 router.get("/products", async (req, res) => {
   try {
