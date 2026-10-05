@@ -47,5 +47,12 @@ router.get("/product/:id/buy-link", async (req, res) => {
     res.status(502).json({ error: `Could not load buy link: ${err.message}` });
   }
 });
+router.get("/trends", async (req, res) => {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/trend_config?id=eq.1&select=*`, {
+    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
+  });
+  const rows = await r.json();
+  res.json(rows[0] || { trend_colors: "" });
+});
 
 export default router;
