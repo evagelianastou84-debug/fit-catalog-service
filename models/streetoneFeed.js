@@ -2,7 +2,6 @@ import zlib from "zlib";
 
 const FEED_URL = "https://productdata.awin.com/datafeed/download/apikey/0fa3ab4fcfa6bee44ef5fe13014ea556/language/de/fid/33949/rid/0/hasEnhancedFeeds/0/columns/aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,description,merchant_category,search_price,merchant_name,merchant_id,category_name,category_id,aw_image_url,currency,store_price,delivery_cost,merchant_deep_link,language,last_updated,display_price,data_feed_id,large_image,alternate_image,alternate_image_two,alternate_image_three,alternate_image_four,colour,product_type,keywords,brand_name,in_stock,reviews,rating,rrp_price,Fashion%3Asize,Fashion%3Acategory/format/csv/delimiter/%2C/compression/gzip/adultcontent/1/";
 
-
 const CATEGORY_KEYWORDS = {
   dress: ["kleid"],
   bottom: ["hose", "jeans", "rock", "shorts", "leggins"],
@@ -41,7 +40,6 @@ function translateColor(c) {
   return (c || "").split("/")[0].trim() || "Multicolor";
 }
 
-// Minimal CSV parser that handles quoted fields with embedded commas/newlines
 function parseCSV(text) {
   const rows = [];
   let row = [];
@@ -70,7 +68,7 @@ function parseCSV(text) {
 
 let cache = null;
 let cacheTime = 0;
-const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+const CACHE_TTL_MS = 60 * 60 * 1000;
 
 async function fetchStreetOneLive() {
   const now = Date.now();
@@ -86,7 +84,9 @@ async function fetchStreetOneLive() {
   const idx = (name) => header.indexOf(name);
   const iName = idx("product_name"), iImg = idx("merchant_image_url"), iPrice = idx("search_price"),
     iCur = idx("currency"), iLink = idx("aw_deep_link"), iColor = idx("colour"), iStock = idx("in_stock"),
-    iId = idx("aw_product_id");
+    iId = idx("aw_product_id"),
+    iAlt4 = idx("alternate_image_four"), iAlt3 = idx("alternate_image_three"),
+    iAlt2 = idx("alternate_image_two"), iAlt1 = idx("alternate_image");
 
   const products = [];
   for (let r = 1; r < rows.length; r++) {
@@ -96,8 +96,19 @@ async function fetchStreetOneLive() {
     const cat = classify(name);
     if (!cat) continue;
     if (row[iStock] !== "1") continue;
-    const img = (row[iImg] || "").trim();
+
+    // Prefer the last available alternate image (tends to be a clean,
+    // full-garment front shot); fall back through to merchant_image_url.
+    const img = (
+      (iAlt4 >= 0 && row[iAlt4]) ||
+      (iAlt3 >= 0 && row[iAlt3]) ||
+      (iAlt2 >= 0 && row[iAlt2]) ||
+      (iAlt1 >= 0 && row[iAlt1]) ||
+      row[iImg] ||
+      ""
+    ).trim();
     if (!img) continue;
+
     const price = parseFloat(row[iPrice]);
     if (!price) continue;
     const colorEn = translateColor(row[iColor]);
