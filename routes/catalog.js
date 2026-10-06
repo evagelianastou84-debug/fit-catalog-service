@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { findProducts, findProductById, recommendSize } from "../models/product.js";
+import { fetchStreetOneLive } from "../models/streetoneFeed.js";
 
 const router = Router();
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -7,7 +8,8 @@ const SUPABASE_KEY = process.env.SUPABASE_KEY;
 
 router.get("/products", async (req, res) => {
   try {
-        const products = await findProducts({
+    const { category, occasion, season, maxPrice } = req.query;
+    const products = await findProducts({
       category,
       occasion,
       season,
@@ -19,7 +21,6 @@ router.get("/products", async (req, res) => {
       liveProducts = await fetchStreetOneLive();
       if (category) liveProducts = liveProducts.filter((p) => p.category === category);
       if (maxPrice) liveProducts = liveProducts.filter((p) => p.price_amount <= Number(maxPrice));
-      // keep the response size reasonable
       liveProducts = liveProducts.slice(0, 150);
     } catch (e) {
       liveProducts = [];
@@ -27,7 +28,6 @@ router.get("/products", async (req, res) => {
 
     const allProducts = [...products, ...liveProducts];
     res.json({ products: allProducts, count: allProducts.length });
-
   } catch (err) {
     res.status(502).json({ error: `Could not load products: ${err.message}` });
   }
@@ -62,6 +62,7 @@ router.get("/product/:id/buy-link", async (req, res) => {
     res.status(502).json({ error: `Could not load buy link: ${err.message}` });
   }
 });
+
 router.get("/trends", async (req, res) => {
   const r = await fetch(`${SUPABASE_URL}/rest/v1/trend_config?id=eq.1&select=*`, {
     headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
