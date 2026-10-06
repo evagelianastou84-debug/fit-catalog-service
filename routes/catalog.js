@@ -7,14 +7,27 @@ const SUPABASE_KEY = process.env.SUPABASE_KEY;
 
 router.get("/products", async (req, res) => {
   try {
-    const { category, occasion, season, maxPrice } = req.query;
-    const products = await findProducts({
+        const products = await findProducts({
       category,
       occasion,
       season,
       maxPrice: maxPrice ? Number(maxPrice) : undefined,
     });
-    res.json({ products, count: products.length });
+
+    let liveProducts = [];
+    try {
+      liveProducts = await fetchStreetOneLive();
+      if (category) liveProducts = liveProducts.filter((p) => p.category === category);
+      if (maxPrice) liveProducts = liveProducts.filter((p) => p.price_amount <= Number(maxPrice));
+      // keep the response size reasonable
+      liveProducts = liveProducts.slice(0, 150);
+    } catch (e) {
+      liveProducts = [];
+    }
+
+    const allProducts = [...products, ...liveProducts];
+    res.json({ products: allProducts, count: allProducts.length });
+
   } catch (err) {
     res.status(502).json({ error: `Could not load products: ${err.message}` });
   }
