@@ -1,6 +1,7 @@
 import zlib from "zlib";
 
-const FEED_URL = "https://productdata.awin.com/datafeed/download/apikey/0fa3ab4fcfa6bee44ef5fe13014ea556/language/de/fid/33949/rid/0/hasEnhancedFeeds/0/columns/aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,description,merchant_category,search_price,merchant_name,merchant_id,category_name,category_id,aw_image_url,currency,store_price,delivery_cost,merchant_deep_link,language,last_updated,display_price,data_feed_id,colour,Fashion%3Asize,Fashion%3Acategory,in_stock/format/csv/delimiter/%2C/compression/gzip/adultcontent/1/";
+const FEED_URL = "https://productdata.awin.com/datafeed/download/apikey/0fa3ab4fcfa6bee44ef5fe13014ea556/language/de/fid/33949/rid/0/hasEnhancedFeeds/0/columns/aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,description,merchant_category,search_price,merchant_name,merchant_id,category_name,category_id,aw_image_url,currency,store_price,delivery_cost,merchant_deep_link,language,last_updated,display_price,data_feed_id,large_image,alternate_image,alternate_image_two,alternate_image_three,alternate_image_four,colour,product_type,keywords,brand_name,in_stock,reviews,rating,rrp_price,Fashion%3Asize,Fashion%3Acategory/format/csv/delimiter/%2C/compression/gzip/adultcontent/1/";
+
 
 const CATEGORY_KEYWORDS = {
   dress: ["kleid"],
