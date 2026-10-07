@@ -85,7 +85,7 @@ async function fetchStreetOneLive() {
   const iName = idx("product_name"), iImg = idx("merchant_image_url"), iPrice = idx("search_price"),
     iCur = idx("currency"), iLink = idx("aw_deep_link"), iColor = idx("colour"), iStock = idx("in_stock"),
     iId = idx("aw_product_id"),
-    iAlt4 = idx("alternate_image_four"), iAlt3 = idx("alternate_image_three"),
+    iAlt3 = idx("alternate_image_three"),
     iAlt2 = idx("alternate_image_two"), iAlt1 = idx("alternate_image");
 
   const products = [];
@@ -97,17 +97,17 @@ async function fetchStreetOneLive() {
     if (!cat) continue;
     if (row[iStock] !== "1") continue;
 
-    // Prefer the last available alternate image (tends to be a clean,
-    // full-garment front shot); fall back through to merchant_image_url.
+    // Prefer the first alternate image (clean product-only shot);
+    // fall back to the other alternates, then merchant_image_url.
     const img = (
-      (iAlt4 >= 0 && row[iAlt4]) ||
-      (iAlt3 >= 0 && row[iAlt3]) ||
-      (iAlt2 >= 0 && row[iAlt2]) ||
       (iAlt1 >= 0 && row[iAlt1]) ||
+      (iAlt2 >= 0 && row[iAlt2]) ||
+      (iAlt3 >= 0 && row[iAlt3]) ||
       row[iImg] ||
       ""
     ).trim();
     if (!img) continue;
+
 
     const price = parseFloat(row[iPrice]);
     if (!price) continue;
