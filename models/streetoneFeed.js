@@ -97,15 +97,18 @@ async function fetchStreetOneLive() {
     if (!cat) continue;
     if (row[iStock] !== "1") continue;
 
-    // Prefer the first alternate image (clean product-only shot);
-    // fall back to the other alternates, then merchant_image_url.
+       // Prefer the "_5.webp" shot (alternate_image_three): the garment alone.
+    // If it is missing or has another format, fall back to the other images.
+    const alt3 = iAlt3 >= 0 ? (row[iAlt3] || "").trim() : "";
     const img = (
+      (alt3.endsWith("_5.webp") && alt3) ||
       (iAlt1 >= 0 && row[iAlt1]) ||
       (iAlt2 >= 0 && row[iAlt2]) ||
-      (iAlt3 >= 0 && row[iAlt3]) ||
+      alt3 ||
       row[iImg] ||
       ""
     ).trim();
+
     if (!img) continue;
 
 
